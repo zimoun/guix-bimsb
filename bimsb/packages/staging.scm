@@ -2891,3 +2891,51 @@ identified from replicate experiments and provide highly stable
 thresholds based on reproducibility.  This package provides the
 original implementation of a pipeline using this method.")
     (license license:gpl2+)))
+
+(define-public r-cytofkit
+  (package
+    (name "r-cytofkit")
+    (version "1.10.0")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (string-append "https://bioconductor.org/packages"
+                            "/3.6/bioc/src/contrib/"
+                            "cytofkit_"
+                            version ".tar.gz"))
+        (sha256
+          (base32
+           "08lrnin6jpyjjgkmw2d71zvrsv0al10g28cqjcwwn9m6ax3nkf79"))))
+    (properties `((upstream-name . "cytofkit")))
+    (build-system r-build-system)
+    (propagated-inputs
+      `(("r-rtsne" ,r-rtsne)
+        ("r-e1071" ,r-e1071)
+        ("r-flowcore" ,r-flowcore)
+        ("r-gplots" ,r-gplots)
+        ("r-colourpicker" ,r-colourpicker)
+        ("r-vgam" ,r-vgam)
+        ("r-reshape2" ,r-reshape2)
+        ("r-ggrepel" ,r-ggrepel)
+        ("r-shiny" ,r-shiny)
+        ("r-shinyfiles" ,r-shinyfiles)
+        ("r-vegan" ,r-vegan)
+        ("r-biobase" ,r-biobase)
+        ("r-doparallel" ,r-doparallel)
+        ("r-pdist" ,r-pdist)
+        ("r-destiny" ,r-destiny)
+        ("r-flowsom" ,r-flowsom)
+        ("r-igraph" ,r-igraph)
+        ("r-rann" ,r-rann)
+        ("r-rcpp" ,r-rcpp)
+        ))
+    (home-page
+     "https://bioconductor.org/packages/3.6/bioc/html/cytofkit.html")
+    (synopsis
+     "Integrated mass cytometry data analysis pipeline")
+    (description
+     "This package is designed to facilitate the analysis workflow of mass
+cytometry data with automatic subset identification and mapping of cellular
+progression. Both command line and a GUI client are provided for executing the
+workflow easily.")
+    (license license:artistic2.0)))
